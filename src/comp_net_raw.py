@@ -26,7 +26,17 @@ CUDA_VISIBLE_DEVICES = [1]
 os.environ['CUDA_VISIBLE_DEVICES']=','.join([str(x) for x in CUDA_VISIBLE_DEVICES])
 #oasis files 1-457
 
-#path='/home/bahaa/oasis_mri/OAS1_'
+#Hyper parameters to be set - 
+#l2_Lambda - used for regularizing/penalizing parameters of the current layer
+#Mainly used to prevent overfitting and is incorporated in the loss function
+#Please see keras.io for more details
+#DropP sets the % of dropout at the end of every dense block
+#Kernel_size is the kernel size of the convolution filters
+#Please see readme for additional resources.
+#Layers such as xconv1a,xmerge1........ belong to the complementary upsampling branch branch of the architecture.
+#The convolution layers's number indicates its level and so up6 and xup6 are at the same level
+#and are parallel to each other
+#Layers such as xxconv1a,xxmerge1 .... belong to the reconstruction branch. 
 
 
 # In[3]:
@@ -40,7 +50,8 @@ import cv2
 
 
 
-#Dice coeff
+#Dice coefficient
+
 smooth = 1.
 def dice_coef(y_true, y_pred):
     y_true_f = K.flatten(y_true)
@@ -48,28 +59,17 @@ def dice_coef(y_true, y_pred):
     intersection = K.sum(y_true_f * y_pred_f)
     return (2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
 
-
+# Negative dice to obtain region of interest (ROI-Branch loss) 
 def dice_coef_loss(y_true, y_pred):
     return -dice_coef(y_true, y_pred)
 
-def neg_dice_coef(y_true, y_pred):
-    y_true_f = K.flatten(y_true)
-    y_pred_f = K.flatten(y_pred)
-    intersection = K.sum(y_true_f * y_pred_f)
-    return (1-((2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)))
-
-
+# Positive dice to minimize overlap with region of interest (Complementary branch (CO) loss)
 def neg_dice_coef_loss(y_true, y_pred):
     return dice_coef(y_true, y_pred)
 
 
-# In[7]:
 
-
-#define the model
-
-#define the model
-def UNet(input_shape,learn_rate=1e-3):
+def CompNet(input_shape,learn_rate=1e-3):
     l2_lambda = 0.0002
     DropP = 0.3
     kernel_size=3
@@ -2547,7 +2547,7 @@ def UNet(input_shape,learn_rate=1e-3):
 # In[8]:
 
 
-model=UNet(input_shape=(512,512,1))
+model=CompNet(input_shape=(512,512,1))
 print(model.summary())
 
 
@@ -2557,8 +2557,8 @@ X_train=X_train.reshape(X_train.shape+(1,))
 y_train=np.load("y_train_new.npy").reshape(X_train.shape)
 
 model.fit([X_train], [y_train,y_train,y_train,y_train,y_train,y_train,y_train,y_train,y_train,y_train,y_train,y_train,X_train,X_train,X_train,X_train,X_train,X_train],
-                  batch_size=1,
-                  nb_epoch=2,
+                  batch_size=4,
+                  nb_epoch=10,
                         #validation_data=([X2_validate],[y_validate]),
                   shuffle=True)
                         #callbacks=[xyz],
