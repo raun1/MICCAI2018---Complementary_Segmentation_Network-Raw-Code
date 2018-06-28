@@ -1,6 +1,8 @@
-# Complementary_Segmentation_Network (Outperforms u-nets) 
+# Complementary_Segmentation_Network (Outperforms u-nets everytime :) ) 
 
 Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmentation Network for Brain MRI Extraction. To view the paper on Archive click the following https://arxiv.org/abs/1804.00521 Visit My website - .... to be updated shortly for intuition, hints etc
+
+
 
 ## Built With/Things Needed to implement experiments
 
@@ -17,10 +19,10 @@ Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmenta
 ### Pre-requisites
 This architecture can be understood after learning about the U-Net [https://arxiv.org/abs/1505.04597] {PLEASE READ U-NET before reading this paper} and W-Net [https://arxiv.org/abs/1711.08506] {Optional}.
 ### Comp Net summary
-*ROI and CO branches
+*ROI and CO branches - 
 We take the downsampling branch of a U-Net as it is, however we split the upsampling branch into two halves, one to obtain the Region of Interest and the other for Complementary aka non region of interest. Losses here are negative dice for ROI and positive dice for Non-ROI region.*
 
-*Reconstruction Branch
+*Reconstruction Branch - 
 Next we merge these two ROI and non ROI outputs using "Summation" operation and then pass it into another U-Net, This U-Net is the reconstruction branch. The input is the summed image from previous step and the output is the "original" image that we start with. The loss of reconstruction branch is MSE.*
 ![alt text](https://github.com/raun1/Complementary_Segmentation_Network/blob/master/fig/network.PNG)
 ```
