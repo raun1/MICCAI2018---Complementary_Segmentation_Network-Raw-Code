@@ -1,5 +1,5 @@
-# Complementary_Segmentation_Network (Outperforms u-nets everytime :) )[under construction] 
-
+# Complementary_Segmentation_Network (Outperforms u-nets everytime :) for binary segmentation )[under construction] 
+Future work will include the idea for multi class complementary segmentation
 Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmentation Network for Brain MRI Extraction. To view the paper on Archive click the following https://arxiv.org/abs/1804.00521 Visit My website - .... to be updated shortly for intuition, hints etc
 
 
