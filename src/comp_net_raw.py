@@ -25,7 +25,7 @@ import nibabel as nib
 CUDA_VISIBLE_DEVICES = [1]
 os.environ['CUDA_VISIBLE_DEVICES']=','.join([str(x) for x in CUDA_VISIBLE_DEVICES])
 #oasis files 1-457
-
+# Please see line 1541 for the main essence of complementary network - i.e. summing up the intermediate outputs and then concatenating them for reconstruction layer
 #Hyper parameters to be set - 
 #l2_Lambda - used for regularizing/penalizing parameters of the current layer
 #Mainly used to prevent overfitting and is incorporated in the loss function
@@ -1538,7 +1538,7 @@ def CompNet(input_shape,learn_rate=1e-3):
     u_net_op4=keras.layers.add([output2,xoutput2])
     u_net_op5=keras.layers.add([output1,xoutput1])
 
-
+    #Concatenation fed to the reconstruction layer
     u_net_op_merge=concatenate([u_net_op0,u_net_op1,u_net_op2,u_net_op3,u_net_op4,u_net_op5])
 
 
