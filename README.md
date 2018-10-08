@@ -68,7 +68,7 @@ You have to provide the inputs.
 
 * Copy the upsampling branch of your U-Net
 * Duplicate it
-* Use same loss functions as the original U-Net BUT change its sign
+* Use same loss functions as the original U-Net BUT change its sign {Warning - Make sure your loss function is defined for the opposite sign and try to think intuitively what it acheives. Example dice is simply overlap between two objects and optimizing negative dice gives us maximum possible overlap, but positive dice lowest value is 0 since you CANNOT quantify how much seperation is there between two objects using the DICE score but simply quantify if the two overlap or not and if they overlap how much }
 * Add the two upsampling branch outputs pairwise for each channel using keras's model.add layer
 * Feed that into the new reconstruction U-Net where the loss function is MSE with the Input image of the first U-Net i.e. the original  input
 
