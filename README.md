@@ -1,4 +1,4 @@
-# Complementary_Segmentation_Network (Outperforms u-nets everytime :) for binary segmentation )[under construction] 
+# Complementary_Segmentation_Network (Outperforms u-nets everytime :) for binary segmentation )
 Future work will include the idea for multi class complementary segmentation
 Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmentation Network for Brain MRI Extraction. To view the paper on Archive click the following https://arxiv.org/abs/1804.00521 Visit My website - .... to be updated shortly for intuition, hints etc
 
@@ -18,6 +18,7 @@ Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmenta
 ## Basic Idea
 ### Pre-requisites
 This architecture can be understood after learning about the U-Net [https://arxiv.org/abs/1505.04597] {PLEASE READ U-NET before reading this paper} and W-Net [https://arxiv.org/abs/1711.08506] {Optional}.
+* Please see line 1541 for the main essence of complementary network - i.e. summing up the intermediate outputs and then concatenating them for reconstruction layer
 * Hyper parameters to be set - 
 * l2_Lambda - used for regularizing/penalizing parameters of the current layer
 * Mainly used to prevent overfitting and is incorporated in the loss function
