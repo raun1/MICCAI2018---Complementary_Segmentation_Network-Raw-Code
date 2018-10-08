@@ -66,11 +66,11 @@ You have to provide the inputs.
 ```
 ### Building your own Comp Net from whatever U-Net you have
 
-*Copy the upsampling branch of your U-Net
-*Duplicate it
-*Use same loss functions as the original U-Net BUT change its sign
-*Add the two upsampling branch outputs pairwise for each channel using keras's model.add layer
-*Feed that into the new reconstruction U-Net where the loss function is MSE with the Input image of the first U-Net i.e. the original input
+* Copy the upsampling branch of your U-Net
+* Duplicate it
+* Use same loss functions as the original U-Net BUT change its sign
+* Add the two upsampling branch outputs pairwise for each channel using keras's model.add layer
+* Feed that into the new reconstruction U-Net where the loss function is MSE with the Input image of the first U-Net i.e. the original  input
 
 
 ![alt text](https://github.com/raun1/Complementary_Segmentation_Network/blob/master/fig/sample_results.PNG)
