@@ -48,7 +48,7 @@ We take the downsampling branch of a U-Net as it is, however we split the upsamp
 
 *Reconstruction Branch - 
 Next we merge these two ROI and non ROI outputs using "Summation" operation and then pass it into another U-Net, This U-Net is the reconstruction branch. The input is the summed image from previous step and the output is the "original" image that we start with. The loss of reconstruction branch is MSE.*
-![alt text](https://github.com/raun1/Complementary_Segmentation_Network/blob/master/fig/network.PNG)
+![alt text](https://github.com/raun1/Complementary_Segmentation_Network/blob/master/fig/Network_img.PNG)
 
 Architecture of our complementary segmentation network, the optimal CompNet.
 The dense blocks (DB), corresponding to the gray bars, are used in each encoder
@@ -57,14 +57,8 @@ layers with a kernel size 3×3; each layer has y filters, except for the last on
 filters. SO: segmentation output for the brain mask; CO: complementary segmentation
 output for the non-brain mask; RO: reconstruction output for the input image. These
 three outputs produced by the Sigmoid function are the final predictions; while all
-other Sigmoids produce intermediate outputs, except for the green one that generates
-input for the image reconstruction sub-network. Best viewed in color.
+other Sigmoids produce intermediate outputs, except for the green one that is the concatenation of the summation from each intermediate layers. Best viewed in color.
 ```
-The code in this repository provides only the stand alone code for this architecture. You may implement it as is, or convert it into modular structure
-if you so wish. The dataset of OASIS can obtained from the link above and the preprocessiong steps involved are mentioned in the paper. 
-You have to provide the inputs.
-
-
 The code in this repository provides only the stand alone code for this architecture. You may implement it as is, or convert it into modular structure
 if you so wish. The dataset of OASIS can obtained from the link above and the preprocessiong steps involved are mentioned in the paper. 
 You have to provide the inputs.
