@@ -31,14 +31,14 @@ This architecture can be understood after learning about the U-Net [https://arxi
 * The convolution layers's number indicates its level and so up6 and xup6 are at the same level
 * and are parallel to each other
 * Layers such as xxconv1a,xxmerge1 .... belong to the reconstruction branch. 
-* for more details of the multi outputs please see my isbi repository here
-* https://github.com/raun1/ISBI2018-Diagnostic-Classification-Of-Lung-Nodules-Using-3D-Neural-Networks
+* For more details of the multi outputs please see my isbi repository here
+https://github.com/raun1/ISBI2018-Diagnostic-Classification-Of-Lung-Nodules-Using-3D-Neural-Networks
 * Basically to summarize, we have two branches one which has negative dice with ground truth brain mask 
-* and is the segmentation branch
+ and is the segmentation branch
 * We then have another branch with positive dice with ground truth masks
 * The THEME of comp-net is to sum up the two sections, future works will provide a better way to do this and a generalized version :) 
 * We do this theme of summing at every stage of the intermediate outputs i.e. the first intermediate output of segmentation branch 
-* is summed with first intermediate output of the complementary branch.
+ is summed with first intermediate output of the complementary branch.
 * We obtain a final summary of the outputs of the segmentation branch and complementary branch and also sum these two new summaries
 * Finally we concat all of these summations and send to the reconstruction branch
 * reconstruction branch is a simple structure of dense multi-output U-Net and the ground truth is the input image and loss is MSE.
