@@ -18,7 +18,7 @@ Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmenta
 ## Basic Idea
 ### Pre-requisites
 This architecture can be understood after learning about the U-Net [https://arxiv.org/abs/1505.04597] {PLEASE READ U-NET before reading this paper} and W-Net [https://arxiv.org/abs/1711.08506] {Optional}.
-* Please see line 1541 for the main essence of complementary network - i.e. summing up the intermediate outputs of segmentation and complementary branches and then concatenating them for reconstruction layer
+* Please see line 1541 for the main essence of complementary network - i.e. summing up the intermediate outputs of segmentation and complementary branches and then concatenating them for reconstruction layer.
 * Hyper parameters to be set - 
 * l2_Lambda - used for regularizing/penalizing parameters of the current layer
 * Mainly used to prevent overfitting and is incorporated in the loss function
@@ -64,6 +64,12 @@ The code in this repository provides only the stand alone code for this architec
 if you so wish. The dataset of OASIS can obtained from the link above and the preprocessiong steps involved are mentioned in the paper. 
 You have to provide the inputs.
 ```
+### Building your own Comp Net from whatever U-Net you have 
+*Copy the upsampling branch of your U-Net
+*Duplicate it
+*Use same loss functions as the original U-Net BUT change its sign
+*Add the two upsampling branch outputs pairwise for each channel using keras's model.add layer
+*Feed that into the new reconstruction U-Net where the loss function is MSE with the Input image of the first U-Net i.e. the original input
 
 
 ![alt text](https://github.com/raun1/Complementary_Segmentation_Network/blob/master/fig/sample_results.PNG)
