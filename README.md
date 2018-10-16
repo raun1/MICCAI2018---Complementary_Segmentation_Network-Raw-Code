@@ -1,6 +1,8 @@
 # Complementary_Segmentation_Network (Outperforms u-nets everytime :) for binary segmentation )
+## Please note that the green sigmoid in the image should be an concatenation. We simply concatenate the pairwise addition of the intermediate branches and then send that whole concatenation (NO SIGMOID on it) to the reconstruction branch
 Future work will include the idea for multi class complementary segmentation
-Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmentation Network for Brain MRI Extraction. To view the paper on Archive click the following https://arxiv.org/abs/1804.00521 Visit My website - .... to be updated shortly for intuition, hints etc
+Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmentation Network for Brain MRI Extraction. To view the paper on Archive click the following https://arxiv.org/abs/1804.00521 
+
 
 email me - rd31879@uga.edu for any questions !! Am happy to discuss 
 
