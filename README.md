@@ -1,5 +1,5 @@
 # Complementary_Segmentation_Network (Outperforms u-nets everytime :) for binary segmentation ) 
-## Pretrained optimal-compnet model on 1st fold of Oasis Brain MRI dataset link - https://drive.google.com/drive/folders/1D6un1ZrV8mpwilR8zLgjrSyFrcJ3mHp1?usp=sharing (let me know if this gets corrupted since anyone can edit this file.)
+## Pretrained optimal-compnet model on 1st fold of Oasis Brain MRI dataset link - https://drive.google.com/file/d/1o70IS00y5psMI8G5FQAciu5A4xcnkhsX/view?usp=sharing (let me know if this gets corrupted )
 ## Please note that the green sigmoid in the image should be an concatenation. We simply concatenate the pairwise addition of the intermediate branches and then send that whole concatenation (NO SIGMOID on it) to the reconstruction branch
 
 Future work will include the idea for multi class complementary segmentation
