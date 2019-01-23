@@ -2559,7 +2559,7 @@ def CompNet(input_shape,learn_rate=1e-3):
 # In[8]:
 
 
-model=CompNet(input_shape=(512,512,1))
+model=CompNet(input_shape=(256,256,1))
 print(model.summary())
 
 
