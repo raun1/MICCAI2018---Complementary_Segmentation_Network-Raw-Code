@@ -1,5 +1,5 @@
 ## Pretrained optimal-compnet model on 1st fold of Oasis Brain MRI dataset link - https://drive.google.com/file/d/1o70IS00y5psMI8G5FQAciu5A4xcnkhsX/view?usp=sharing (let me know if this gets corrupted )
-## Please note that the green sigmoid in the image should be an concatenation. We simply concatenate the pairwise addition of the intermediate branches and then send that whole concatenation (NO SIGMOID on it) to the reconstruction branch
+### Please note that the green sigmoid in the image should be an concatenation. We simply concatenate the pairwise addition of the intermediate branches and then send that whole concatenation (NO SIGMOID on it) to the reconstruction branch
 
 Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmentation Network for Brain MRI Extraction. To view the paper on Archive click the following https://arxiv.org/abs/1804.00521 
 ## Comp Net summary
