@@ -1,27 +1,8 @@
-# Complementary_Segmentation_Network (Outperforms u-nets everytime :) for binary segmentation ) 
 ## Pretrained optimal-compnet model on 1st fold of Oasis Brain MRI dataset link - https://drive.google.com/file/d/1o70IS00y5psMI8G5FQAciu5A4xcnkhsX/view?usp=sharing (let me know if this gets corrupted )
 ## Please note that the green sigmoid in the image should be an concatenation. We simply concatenate the pairwise addition of the intermediate branches and then send that whole concatenation (NO SIGMOID on it) to the reconstruction branch
 
-Future work will include the idea for multi class complementary segmentation
 Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmentation Network for Brain MRI Extraction. To view the paper on Archive click the following https://arxiv.org/abs/1804.00521 
-
-
-email me - rd31879@uga.edu for any questions !! Am happy to discuss 
-
-## Built With/Things Needed to implement experiments
-
-* [Python](https://www.python.org/downloads/) - Python-2 
-* [Keras](http://www.keras.io) - Deep Learning Framework used
-* [Numpy](http://www.numpy.org/) - Numpy
-* [Sklearn](http://scikit-learn.org/stable/install.html) - Scipy/Sklearn/Scikit-learn
-* [CUDA](https://developer.nvidia.com/cuda-80-ga2-download-archive) - CUDA-8
-* [CUDNN](https://developer.nvidia.com/rdp/assets/cudnn_library-pdf-5prod) - CUDNN-5 You have to register to get access to CUDNN
-* [OASIS](https://www.oasis-brains.org/) - Oasis-dataset website
-* [12 gb TitanX]- To implement this exact network
-
-## Basic Idea
-
-### Comp Net summary
+## Comp Net summary
 *ROI and CO branches - 
 We take the downsampling branch of a U-Net as it is, however we split the upsampling branch into two halves, one to obtain the Region of Interest and the other for Complementary aka non region of interest. Losses here are negative dice for ROI and positive dice for Non-ROI region.*
 
@@ -42,6 +23,23 @@ The code in this repository provides only the stand alone code for this architec
 if you so wish. The dataset of OASIS can obtained from the link above and the preprocessiong steps involved are mentioned in the paper. 
 You have to provide the inputs.
 ```
+
+
+email me - rd31879@uga.edu for any questions !! Am happy to discuss 
+
+## Built With/Things Needed to implement experiments
+
+* [Python](https://www.python.org/downloads/) - Python-2 
+* [Keras](http://www.keras.io) - Deep Learning Framework used
+* [Numpy](http://www.numpy.org/) - Numpy
+* [Sklearn](http://scikit-learn.org/stable/install.html) - Scipy/Sklearn/Scikit-learn
+* [CUDA](https://developer.nvidia.com/cuda-80-ga2-download-archive) - CUDA-8
+* [CUDNN](https://developer.nvidia.com/rdp/assets/cudnn_library-pdf-5prod) - CUDNN-5 You have to register to get access to CUDNN
+* [OASIS](https://www.oasis-brains.org/) - Oasis-dataset website
+* [12 gb TitanX]- To implement this exact network
+
+## Basic Idea
+
 
 ### Pre-requisites
 This architecture can be understood after learning about the U-Net [https://arxiv.org/abs/1505.04597] {PLEASE READ U-NET before reading this paper} and W-Net [https://arxiv.org/abs/1711.08506] {Optional}.
