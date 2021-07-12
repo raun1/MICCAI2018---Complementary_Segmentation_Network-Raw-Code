@@ -2,9 +2,9 @@
 ### Please note that the green sigmoid in the image should be an concatenation. We simply concatenate the pairwise addition of the intermediate branches and then send that whole concatenation (NO SIGMOID on it) to the reconstruction branch
 
 Network Architecture for the MICCAI_2018 paper : CompNet: Complementary Segmentation Network for Brain MRI Extraction. To view the paper on Archive click the following https://arxiv.org/abs/1804.00521 
-## Comp Net summary
-![alt text](https://github.com/raun1/Complementary_Segmentation_Network/blob/master/fig/Network_img.PNG)
 
+![alt text](https://github.com/raun1/Complementary_Segmentation_Network/blob/master/fig/Network_img.PNG)
+## Comp Net summary
 Architecture of our complementary segmentation network, the optimal CompNet.
 The dense blocks (DB), corresponding to the gray bars, are used in each encoder
 and decoder. The triple (x,y,z) in each dense block indicates that it has x convolutional
